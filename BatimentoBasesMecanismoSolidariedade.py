@@ -51,6 +51,8 @@ headers = {'User-Agent':
 
 df_rh = pd.read_csv('BaseRH.csv',sep=";",decimal=',')
 
+st.write(df_rh)
+
 df_base = pd.DataFrame()
 df_base['Nome'] = pd.unique(df_rh.NOME).tolist()
 
