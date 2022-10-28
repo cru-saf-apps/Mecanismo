@@ -136,7 +136,7 @@ for link in df_base.Link:
             lista_ids.append('-')
             lista_pags.append('-')
         
-    print(cont)
+    st.write(cont)
     cont += 1
 
 df_base['Pagina'] = lista_pags
