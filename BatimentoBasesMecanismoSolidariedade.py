@@ -65,15 +65,17 @@ st.write(df_base)
 
 st.write(df_rh[df_rh.NOME == df_base.Nome[0]]['NASCIMENTO'].tolist()[0])
 
-t = 0
-while t < len(df_base):
-    nome = df_base.Nome[t]
-    df_base['Nascimento'][t] = df_rh[df_rh.NOME == nome]['NASCIMENTO'].tolist()[0]
-    df_base['Entrada'][t] = df_rh[df_rh.NOME == nome]['ADMISSÃO'].tolist()[0]
-    df_base['Saida'][t] = df_rh[df_rh.NOME == nome]['DEMISSÃO'].tolist()[0]
-    df_base['Tipo'][t] = df_rh[df_rh.NOME == nome]['TIPO DEMISSÃO'].tolist()[0]
-    t += 1
-
+try:
+  t = 0
+  while t < len(df_base):
+      nome = df_base.Nome[t]
+      df_base['Nascimento'][t] = df_rh[df_rh.NOME == nome]['NASCIMENTO'].tolist()[0]
+      df_base['Entrada'][t] = df_rh[df_rh.NOME == nome]['ADMISSÃO'].tolist()[0]
+      df_base['Saida'][t] = df_rh[df_rh.NOME == nome]['DEMISSÃO'].tolist()[0]
+      df_base['Tipo'][t] = df_rh[df_rh.NOME == nome]['TIPO DEMISSÃO'].tolist()[0]
+      t += 1
+except:
+  st.write(t)
 
 
 lista_links = []
