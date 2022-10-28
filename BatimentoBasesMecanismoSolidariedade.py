@@ -65,18 +65,14 @@ st.write(df_base)
 
 st.write(df_rh[df_rh.NOME == df_base.Nome[0]]['NASCIMENTO'].tolist()[0])
 
-try:
-  t = 0
-  while t < len(df_base):
-      nome = df_base.Nome[t]
-      df_base['Nascimento'][t] = df_rh[df_rh.NOME == nome]['NASCIMENTO'].tolist()[0]
-      df_base['Entrada'][t] = df_rh[df_rh.NOME == nome]['ADMISSÃO'].tolist()[0]
-      df_base['Saida'][t] = df_rh[df_rh.NOME == nome]['DEMISSÃO'].tolist()[0]
-      df_base['Tipo'][t] = df_rh[df_rh.NOME == nome]['TIPO DEMISSÃO'].tolist()[0]
-      t += 1
-except:
-  st.write(t)
-
+t = 0
+while t < len(df_base):
+    nome = df_base.Nome[t]
+    df_base['Nascimento'][t] = df_rh[df_rh.NOME == nome]['NASCIMENTO'].tolist()[0]
+    df_base['Entrada'][t] = df_rh[df_rh.NOME == nome]['ADMISSÃO'].tolist()[0]
+    df_base['Saida'][t] = df_rh[df_rh.NOME == nome]['DEMISSÃO'].tolist()[0]
+    df_base['Tipo'][t] = df_rh[df_rh.NOME == nome]['TIPO DEMISSÃO'].tolist()[0]
+    t += 1
 
 lista_links = []
 
@@ -95,6 +91,8 @@ st.write(df_base)
 lista_pags = []
 lista_ids = []
 cont = 1
+texto_busca_links = st.text("Achando links para os jogadores da base atualizada")
+
 for link in df_base.Link:
 
     if link == 'https://www.transfermarkt.com.br/schnellsuche/ergebnis/schnellsuche?query=LUIZ+GUSTAVO+BENMUYAL+REIS':
@@ -147,7 +145,7 @@ for link in df_base.Link:
             lista_ids.append('-')
             lista_pags.append('-')
         
-    st.write(cont)
+    texto_busca_links.text("Busca: "+str(cont)+"/"+str(len(df_base)))
     cont += 1
 
 df_base['Pagina'] = lista_pags
