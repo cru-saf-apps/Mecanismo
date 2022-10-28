@@ -15,9 +15,6 @@ import datetime as dt
 
 base_antiga = pd.read_csv('Base.csv')
 
-st.write(base_antiga)
-
-base_antiga = base_antiga.drop(['Unnamed: 0'],axis=1)
 base_antiga.Nascimento = pd.to_datetime(base_antiga.Nascimento,errors='coerce',
                                         dayfirst=True)
 base_antiga.Entrada = pd.to_datetime(base_antiga.Entrada,errors='coerce',
@@ -26,15 +23,17 @@ base_antiga.Saida = pd.to_datetime(base_antiga.Saida,errors='coerce',
                                    dayfirst=True)
 base_antiga.ID = base_antiga.ID.astype('str')
 
+st.write(base_antiga)
 
 
 
 hist_antigo = pd.read_csv('Historico.csv')
 
-hist_antigo = hist_antigo.drop(['Unnamed: 0','Ultima2Anos','Aposentado'],axis=1)
+hist_antigo = hist_antigo.drop(['Ultima2Anos','Aposentado'],axis=1)
 hist_antigo.data = pd.to_datetime(hist_antigo.data,errors='coerce',dayfirst=True)
 hist_antigo.ID = hist_antigo.ID.astype('str')
 
+st.write(hist_antigo)
 
 
 ''' leitura de base do rh e criação de base com link de pesquisa
@@ -81,6 +80,8 @@ for nome in df_base.Nome:
 df_base['Link'] = lista_links  
 
 df_base = df_base.reset_index(drop=True)
+
+st.write(df_base)
 
 
 lista_pags = []
