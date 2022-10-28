@@ -63,7 +63,7 @@ df_base['Tipo'] = ''
 
 st.write(df_base)
 
-st.write(df_rh[df_rh.NOME == df_base.Nome[0]]['NASCIMENTO'])
+st.write(df_rh[df_rh.NOME == df_base.Nome[0]]['NASCIMENTO'].tolist()[0])
 
 t = 0
 while t < len(df_base):
