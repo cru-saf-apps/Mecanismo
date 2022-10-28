@@ -4,15 +4,12 @@ Created on Mon Oct 10 10:22:00 2022
 
 @author: rafin
 """
-
+import streamlit as st
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup as bs
 import time
 import datetime as dt
-
-
-
 
 
 
@@ -51,7 +48,7 @@ headers = {'User-Agent':
 
 
 
-df_rh = pd.read_excel('BaseRH.xlsx')
+df_rh = pd.read_csv('BaseRH.csv',sep=";",decimal=',')
 
 df_base = pd.DataFrame()
 df_base['Nome'] = pd.unique(df_rh.NOME).tolist()
@@ -156,7 +153,6 @@ jogs_novos = jogs_novos.drop_duplicates(keep=False)
 
 jogs_novos = jogs_novos.drop_duplicates('Link')
 jogs_novos = jogs_novos[jogs_novos.ID != '0']
-
 
 
 ''' exportando o jogs_novos com jogadores novos encontrados a partir da 
