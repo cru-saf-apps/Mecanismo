@@ -61,6 +61,8 @@ df_base['Entrada'] = ''
 df_base['Saida'] = ''
 df_base['Tipo'] = ''
 
+st.write(df_base)
+
 t = 0
 while t < len(df_base):
     nome = df_base.Nome[t]
