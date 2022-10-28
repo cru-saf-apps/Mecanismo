@@ -15,6 +15,8 @@ import datetime as dt
 
 base_antiga = pd.read_csv('Base.csv')
 
+st.write(base_antiga)
+
 base_antiga = base_antiga.drop(['Unnamed: 0'],axis=1)
 base_antiga.Nascimento = pd.to_datetime(base_antiga.Nascimento,errors='coerce',
                                         dayfirst=True)
