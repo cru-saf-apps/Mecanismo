@@ -62,6 +62,8 @@ df_base['Saida'] = ''
 df_base['Tipo'] = ''
 
 st.write(df_base)
+t = 0
+st.write(df_rh[df_rh.NOME == nome]['NASCIMENTO'])
 
 t = 0
 while t < len(df_base):
